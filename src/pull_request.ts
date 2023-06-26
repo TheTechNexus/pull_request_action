@@ -40,18 +40,19 @@ export async function getLabelsFromFileName({
     pull_number,
   });
 
-  const moduleNames = pullRequestFiles.map((file) => {
-    return file.filename.split("/").at(-2) ?? "";
-  });
+  // const moduleNames = pullRequestFiles.map((file) => {
+  //   return file.filename.split("/").at(-2) ?? "";
+  // });
 
-  const fileExtensions: string[] = pullRequestFiles.map((file) => {
-    return file.filename.split(".").at(-1) ?? "";
-  });
+  // const fileExtensions: string[] = pullRequestFiles.map((file) => {
+  //   return file.filename.split(".").at(-1) ?? "";
+  // });
 
-  const uniqueModuleNames = [...new Set(moduleNames)];
-  const uniqueFileExtensions = [...new Set(fileExtensions)];
+  // const uniqueModuleNames = [...new Set(moduleNames)];
+  // const uniqueFileExtensions = [...new Set(fileExtensions)];
 
-  const labels = uniqueModuleNames.concat(uniqueFileExtensions);
+  // const labels = uniqueModuleNames.concat(uniqueFileExtensions);
+  const labels: string[] = [];
 
   if (branch_name.split("/").length > 1 && branch_name.split("/").at(0)) {
     const branch_type = branch_name.split("/").at(0);

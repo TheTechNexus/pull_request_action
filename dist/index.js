@@ -13044,17 +13044,16 @@ function getLabelsFromFileName({ owner, repo, pull_number, branch_name, octokit,
             repo,
             pull_number,
         });
-        const moduleNames = pullRequestFiles.map((file) => {
-            var _a;
-            return (_a = file.filename.split("/").at(-2)) !== null && _a !== void 0 ? _a : "";
-        });
-        const fileExtensions = pullRequestFiles.map((file) => {
-            var _a;
-            return (_a = file.filename.split(".").at(-1)) !== null && _a !== void 0 ? _a : "";
-        });
-        const uniqueModuleNames = [...new Set(moduleNames)];
-        const uniqueFileExtensions = [...new Set(fileExtensions)];
-        const labels = uniqueModuleNames.concat(uniqueFileExtensions);
+        // const moduleNames = pullRequestFiles.map((file) => {
+        //   return file.filename.split("/").at(-2) ?? "";
+        // });
+        // const fileExtensions: string[] = pullRequestFiles.map((file) => {
+        //   return file.filename.split(".").at(-1) ?? "";
+        // });
+        // const uniqueModuleNames = [...new Set(moduleNames)];
+        // const uniqueFileExtensions = [...new Set(fileExtensions)];
+        // const labels = uniqueModuleNames.concat(uniqueFileExtensions);
+        const labels = [];
         if (branch_name.split("/").length > 1 && branch_name.split("/").at(0)) {
             const branch_type = branch_name.split("/").at(0);
             if (branch_type === "fix") {
